@@ -1,0 +1,8 @@
+# Rebase
+ ka matlab hota hai apne branch ke commits ko utha kar dusre branch ke upar apply karna, jisse history ekdum straight line (linear) ban jaati hai. Maan lijiye aapke paas ek file hai jismein A naam ka code likha hua hai jo dono branches mein common hai. Ab aap Main branch mein chale gaye aur usmein ek line likhi console.log("Main"); aur commit kar diya. Uske baad aap Bug branch mein gaye, jahan abhi tak sirf A code tha. Is Bug branch mein aapne ek line likhi console.log("Bug"); aur commit kar diya.
+
+Ab situation yeh hai ki dono branches ke paas ek hi base A hai, lekin unhone apne apne naye line likh diye. Agar aap merge karte to Git ek merge commit banata, aur kyunki dono branches ne alag-alag code likha hai, is wajah se conflict hota. Developer ko manually decide karna padta ki kaunsa code rakhna hai.
+
+Lekin agar aap rebase karte, jaise ki Bug branch ko Main ke upar rebase karte, to Git Bug branch ke commits uthakar Main branch ke commits ke upar apply kar deta. Matlab pehle A + console.log("Main"); aayega, aur uske upar Git Bug branch ka commit (console.log("Bug");) apply karega. Yahaan bhi conflict aa sakta hai kyunki dono alag line likhe gaye hain, par aap resolve karke git rebase --continue karenge to Bug branch ki history seedhi ho jaayegi aur aisa lagega jaise Bug ka kaam Main ke baad hi kiya gaya ho.
+
+Simple shabdon mein, merge branches ko jodta hai aur ek extra commit banata hai, jabki rebase commits ko utha kar latest branch ke upar chipka deta hai, jisse ek clean aur linear history milti hai.
